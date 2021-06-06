@@ -17,29 +17,32 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../public/index.html'));
 });
 
-app.get('/api/product/:id', (req, res) => {
-  // res.redirect(`http://localhost:3003/api/product/${req.params.id}`);
-  res.redirect(`http://ec2-54-67-28-46.us-west-1.compute.amazonaws.com:5003/api/product/${req.params.id}`);
+// C.Tan: Commenting out other services (in dev).
+// app.get('/api/product/:id', (req, res) => {
+//   // res.redirect(`http://localhost:3003/api/product/${req.params.id}`);
+//   res.redirect(`http://ec2-54-67-28-46.us-west-1.compute.amazonaws.com:5003/api/product/${req.params.id}`);
 
-});
+// });
 
-app.get('/images/org/:id', (req, res) => {
-  res.redirect(`http://localhost:3004/images/org/${req.params.id}`);
+// app.get('/images/org/:id', (req, res) => {
+//   res.redirect(`http://localhost:3004/images/org/${req.params.id}`);
 
-});
+// });
 
-app.get('/api/sizes/:id', (req, res) => {
-  res.redirect(`http://ec2-18-221-34-3.us-east-2.compute.amazonaws.com:3002/api/sizes/${req.params.id}`);
+// app.get('/api/sizes/:id', (req, res) => {
+//   res.redirect(`http://ec2-18-221-34-3.us-east-2.compute.amazonaws.com:3002/api/sizes/${req.params.id}`);
 
-});
+// });
 
-app.get('/api/reviews/:id/details', (req, res) => {
-  res.redirect(`http://ec2-100-25-191-161.compute-1.amazonaws.com/${req.params.id}`);
+// app.get('/api/reviews/:id/details', (req, res) => {
+//   res.redirect(`http://ec2-100-25-191-161.compute-1.amazonaws.com/${req.params.id}`);
 
-});
+// });
 
 app.get('/similar-products-by-views/:id', (req, res) => {
-  axios.get(`http://18.222.25.224:3005/similar-products-by-views/${req.params.id}`)
+  // C.Tan: Switching to use my local instead (in dev).
+  // axios.get(`http://18.222.25.224:3005/similar-products-by-views/${req.params.id}`)
+  axios.get(`http://localhost:5500/similar-products-by-views/${req.params.id}`)
     .then((result) => {
       res.send(result.data);
     })
@@ -47,7 +50,7 @@ app.get('/similar-products-by-views/:id', (req, res) => {
 });
 
 const server = app.listen(port, function () {
-  console.log(`listenting on port:${port}`);
+  console.log(`listening on port:${port}`);
 });
 
 module.exports = server;
