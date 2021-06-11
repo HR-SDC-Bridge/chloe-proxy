@@ -1,8 +1,8 @@
+const newrelic = require('newrelic');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const axios = require('axios');
-
 
 const app = express();
 const port = 4000;
@@ -42,7 +42,9 @@ app.get('/', (req, res) => {
 app.get('/similar-products-by-views/:id', (req, res) => {
   // C.Tan: Switching to use my local instead (in dev).
   // axios.get(`http://18.222.25.224:3005/similar-products-by-views/${req.params.id}`)
-  axios.get(`http://localhost:5500/similar-products-by-views/${req.params.id}`)
+  // axios.get(`http://localhost:5500/similar-products-by-views/${req.params.id}`
+  // C.Tan: Switching to use my deployed service instead.
+  axios.get(`http://3.143.80.36:5500/similar-products-by-views/${req.params.id}`)
     .then((result) => {
       res.send(result.data);
     })

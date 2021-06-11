@@ -16,12 +16,14 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "stressTestGET": "k6 run k6scriptGET.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "newrelic": "^7.5.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
