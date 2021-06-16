@@ -44,7 +44,9 @@ app.get('/similar-products-by-views/:id', (req, res) => {
   // axios.get(`http://18.222.25.224:3005/similar-products-by-views/${req.params.id}`)
   // axios.get(`http://localhost:5500/similar-products-by-views/${req.params.id}`
   // C.Tan: Switching to use my deployed service instead.
-  axios.get(`http://3.143.80.36:5500/similar-products-by-views/${req.params.id}`)
+  // C.Tan 6/16/2021: Switching to use my load balancer IP instead.
+  // axios.get(`http://3.143.80.36:5500/similar-products-by-views/${req.params.id}`)
+  axios.get(`http://18.118.213.49/${req.params.id}`)
     .then((result) => {
       res.send(result.data);
     })

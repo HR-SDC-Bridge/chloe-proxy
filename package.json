@@ -17,7 +17,8 @@
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
     "build": "webpack --watch",
-    "stressTestGET": "k6 run k6scriptGET.js"
+    "stressTestGET": "k6 run k6scriptGET.js",
+    "sshProxy": "ssh ikea-proxy"
   },
   "dependencies": {
     "axios": "^0.21.1",
