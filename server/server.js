@@ -46,7 +46,7 @@ app.get('/similar-products-by-views/:id', (req, res) => {
   // C.Tan: Switching to use my deployed service instead.
   // C.Tan 6/16/2021: Switching to use my load balancer IP instead.
   // axios.get(`http://3.143.80.36:5500/similar-products-by-views/${req.params.id}`)
-  axios.get(`http://18.118.213.49/${req.params.id}`)
+  axios.get(`http://18.118.213.49/similar-products-by-views/${req.params.id}`)
     .then((result) => {
       res.send(result.data);
     })
