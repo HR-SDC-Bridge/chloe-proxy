@@ -50,7 +50,10 @@ app.get('/similar-products-by-views/:id', (req, res) => {
     .then((result) => {
       res.send(result.data);
     })
-    .catch((err) => console.error('GET OTHERS ALSO VIEWED FAILED: ', err))
+    .catch((err) => {
+      console.error('GET OTHERS ALSO VIEWED FAILED: ', err);
+      res.sendStatus(500);
+    });
 });
 
 const server = app.listen(port, function () {
